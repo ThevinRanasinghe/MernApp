@@ -11,8 +11,10 @@ const getWorkouts = async (req,res) => {
 
 //get a single workout
 const getWorkout = async (req,res) => {
+    //getting the id as a parameter from the req body
     const {id} = req.params
 
+    //checking if the paramter(id) is a valid mongoose type id
     if(!mongoose.Types.ObjectId.isValid(id)){
         res.status(404).json({error: 'No such workout'})
     }
